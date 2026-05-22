@@ -1,0 +1,55 @@
+{
+  "skill_name": "retroprd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I've been building a SaaS app for two weeks and have zero docs. Run retroprd on this repo at /tmp/retroprd-eval-repo. I want the full treatment — PRDs, scaffold files, everything.",
+      "expected_output": "PRDs in .prd/ numbered from 001, a .prd/README.md index, .context/session.md, .context/backlog.md, .dev/decisions.md, and a RetroPRD Complete summary. Every PRD must have a Reconstruction confidence marker. If there are uncommitted changes before writing, the agent must ask the user first. The summary must include a git commit and push reminder.",
+      "files": [],
+      "assertions": [
+        "At least one PRD file is created in .prd/ with .md extension",
+        "Each PRD includes a 'Reconstruction confidence' field set to High, Medium, or Low",
+        ".prd/README.md is created or updated with a table listing all generated PRDs",
+        ".context/session.md is created and contains a 'Current product state' section",
+        ".context/backlog.md is created with at least one backlog entry",
+        ".dev/decisions.md is created with at least one ADR entry",
+        "A 'RetroPRD Complete' summary is delivered at the end with coverage date range and confidence breakdown",
+        "Agent runs git status before writing any documentation files",
+        "If uncommitted changes are present before writing, agent asks the user whether to commit first",
+        "Agent runs 'git log -1' and 'git status' after delivering the summary",
+        "A reminder to run git commit and git push appears at the end of the output"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I just want PRDs from my git history at /tmp/retroprd-eval-repo — no scaffold files. I already have my AGENTS.md set up.",
+      "expected_output": "PRD files written to .prd/ and .prd/README.md updated. No .context/ or .dev/ files created. Final summary notes that scaffold generation was skipped. A git commit and push reminder is included.",
+      "files": [],
+      "assertions": [
+        "At least one PRD file is created in .prd/",
+        ".prd/README.md is created or updated",
+        "No file is created at .context/session.md",
+        "No file is created at .context/backlog.md",
+        "No file is created at .dev/decisions.md",
+        "Agent runs git status before writing any PRD files",
+        "A reminder to run git commit and git push appears at the end of the output"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "My AGENTS.md at /tmp/retroprd-eval-repo/AGENTS.md has a bunch of TODO sections. Can you read the repo history and fill them in?",
+      "expected_output": "AGENTS.md updated with project context (3+ sentences), identified build phases, current focus, key learnings/gotchas, and active backlog. No PRD files created. A git commit and push reminder is included after the changes.",
+      "files": [],
+      "assertions": [
+        "AGENTS.md is modified and no longer contains TODO placeholder sections",
+        "The updated AGENTS.md contains a project context description of at least 3 sentences",
+        "The updated AGENTS.md identifies at least 2 build phases",
+        "The updated AGENTS.md has a key learnings or gotchas section with at least one entry",
+        "No new PRD files are created in .prd/",
+        "Agent runs git status before modifying AGENTS.md",
+        "If uncommitted changes are present before writing, agent asks the user whether to commit first",
+        "A reminder to run git commit and git push appears at the end of the output"
+      ]
+    }
+  ]
+}

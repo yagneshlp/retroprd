@@ -1,0 +1,82 @@
+[
+  {
+    "query": "I've been building this app for three weeks with no docs at all. Can you go through my git history and generate retroactive PRDs for everything I've shipped?",
+    "should_trigger": true
+  },
+  {
+    "query": "run retroprd on this repo",
+    "should_trigger": true
+  },
+  {
+    "query": "I started coding before I wrote any specs. Now I need to catch up my documentation — create PRDs from what's already been built.",
+    "should_trigger": true
+  },
+  {
+    "query": "my codebase is totally undocumented. can you archaeology through the commits and figure out what was built and why?",
+    "should_trigger": true
+  },
+  {
+    "query": "I have an AGENTS.md with a bunch of TODO sections that were never filled in. Read the repo and populate them.",
+    "should_trigger": true
+  },
+  {
+    "query": "populate my builder OS scaffold — I need session.md, backlog.md, and decisions.md from the work I've done so far",
+    "should_trigger": true
+  },
+  {
+    "query": "my boss wants an audit trail of everything we've shipped in this repo. can you produce that from the git log?",
+    "should_trigger": true
+  },
+  {
+    "query": "I want to hand this codebase off to a new engineer. Help me reconstruct the product story so they can get up to speed fast.",
+    "should_trigger": true
+  },
+  {
+    "query": "there are like 200 commits in this repo and zero product docs. go through it and figure out what we built",
+    "should_trigger": true
+  },
+  {
+    "query": "I've been building in flow for a month. time to write up what I made. use my claude code transcripts if they help.",
+    "should_trigger": true
+  },
+  {
+    "query": "I want to write a PRD for a new payments feature I'm about to build. Here's what I'm thinking: users can subscribe monthly or annually.",
+    "should_trigger": false
+  },
+  {
+    "query": "can you explain what the authentication module in src/auth.ts does?",
+    "should_trigger": false
+  },
+  {
+    "query": "create a README for my project",
+    "should_trigger": false
+  },
+  {
+    "query": "review my existing PRD for the onboarding flow and tell me if I'm missing anything",
+    "should_trigger": false
+  },
+  {
+    "query": "I want to create a new AGENTS.md from scratch for this project. Help me set it up.",
+    "should_trigger": false
+  },
+  {
+    "query": "analyze the architecture of this codebase and tell me how it's structured",
+    "should_trigger": false
+  },
+  {
+    "query": "write unit tests for the UserService class",
+    "should_trigger": false
+  },
+  {
+    "query": "can you write a script that parses the git log and counts commits per author?",
+    "should_trigger": false
+  },
+  {
+    "query": "I need a product spec for the feature I'm planning to build next quarter. Here are my notes:",
+    "should_trigger": false
+  },
+  {
+    "query": "what does this commit do? git show abc1234",
+    "should_trigger": false
+  }
+]

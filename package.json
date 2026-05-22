@@ -1,0 +1,28 @@
+{
+  "name": "retroprd",
+  "version": "1.1.0",
+  "description": "Retroactive PRD and documentation generation for builders who started coding in flow.",
+  "keywords": [
+    "agent-skill",
+    "claude-code",
+    "prd",
+    "documentation",
+    "product-management",
+    "builder-os",
+    "retroprd",
+    "coding-agent"
+  ],
+  "author": "Yagnesh L P",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yagnesh-lp/retroprd"
+  },
+  "homepage": "https://github.com/yagnesh-lp/retroprd#readme",
+  "files": [
+    "skills/"
+  ],
+  "skills": {
+    "retroprd": "skills/retroprd"
+  }
+}
