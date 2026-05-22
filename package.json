@@ -16,9 +16,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yagnesh-lp/retroprd"
+    "url": "https://github.com/yagneshlp/retroprd"
   },
-  "homepage": "https://github.com/yagnesh-lp/retroprd#readme",
+  "homepage": "https://retroprd.ylp.pm",
   "files": [
     "skills/"
   ],

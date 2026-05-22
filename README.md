@@ -1,5 +1,9 @@
 # RetroPRD
 
+[![skills.sh](https://skills.sh/b/yagneshlp/retroprd)](https://skills.sh/yagneshlp/retroprd)
+[![npm version](https://img.shields.io/npm/v/retroprd.svg?label=npm&color=a78bfa)](https://www.npmjs.com/package/retroprd)
+[![License: MIT](https://img.shields.io/badge/license-MIT-a78bfa.svg)](LICENSE)
+
 **Retroactive PRDs for builders who started coding before they started documenting.**
 
 You were in flow. You shipped things. Now you want structure — context files, decision logs, a change trail that future-you (or a future AI agent) can actually read.
@@ -7,10 +11,12 @@ You were in flow. You shipped things. Now you want structure — context files, 
 RetroPRD is an agent skill that reads your git history, Claude Code / Codex session transcripts, and codebase, then generates retroactive PRDs, ADRs, and builder OS scaffold files — all in one pass.
 
 ```bash
-npx skills add yagnesh-lp/retroprd
+npx skills add yagneshlp/retroprd
 ```
 
 Works with Claude Code, Cursor, Gemini CLI, Codex CLI, and any agent that supports the skills standard.
+
+**[retroprd.ylp.pm](https://retroprd.ylp.pm)**
 
 ---
 
@@ -34,7 +40,7 @@ All PRDs carry a **reconstruction confidence marker** (High / Medium / Low) so y
 ## Installation
 
 ```bash
-npx skills add yagnesh-lp/retroprd
+npx skills add yagneshlp/retroprd
 ```
 
 This installs the skill into your project's `.claude/skills/` (or the equivalent for your agent). Reload your agent and type `/retroprd` to activate.
@@ -124,4 +130,4 @@ RetroPRD is designed around the [AGENTS.md builder OS convention](https://github
 
 ## License
 
-MIT — Yagnesh L P
+MIT — [Yagnesh L P](https://github.com/yagneshlp)

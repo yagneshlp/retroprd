@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetroPRD — Retroactive Docs for Builders in Flow</title>
+  <meta name="description" content="An agent skill that reads your git history and session transcripts, then generates PRDs, ADRs, and builder OS scaffold files in one pass.">
+  <meta property="og:title" content="RetroPRD — Retroactive Docs for Builders in Flow">
+  <meta property="og:description" content="You were in flow. You shipped things. Now get the docs.">
+  <meta property="og:url" content="https://retroprd.ylp.pm">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RetroPRD">
+  <meta name="twitter:description" content="Retroactive PRDs for builders who started coding before they started documenting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">RetroPRD</a>
+      <a href="https://github.com/yagneshlp/retroprd" class="btn-ghost" target="_blank" rel="noopener noreferrer">
+        GitHub →
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-badge">v1.1 · Agent Skill</div>
+      <h1>You've built something awesome.</h1>
+       <h2>Now get the documentation in order.</h2><br>
+       <!-- <h3>All that's left is to Hyperscale your project</h3> -->
+      <p class="hero-sub">
+        RetroPRD reads your git history and agent session transcripts,
+        then generates PRDs, ADRs, and sets up a builder OS, all in one pass.
+      </p>
+      <div class="install-block">
+        <span class="install-prompt">$</span>
+        <code class="install-cmd">npx skills add yagneshlp/retroprd</code>
+        <button class="copy-btn" onclick="copyText(this, 'npx skills add yagneshlp/retroprd')" aria-label="Copy install command">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
+      </div>
+      <p class="compat-line">Works with <span>Claude Code</span> · <span>Codex CLI</span> · <span>Cursor</span> · <span>Gemini CLI</span></p>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <p class="section-label">Why it exists</p>
+      <h2 class="section-title">You code faster than you document.</h2>
+      <p class="section-sub">That's not a flaw. It's how good builders work. RetroPRD fills the gap retroactively, from evidence that already exists in your repo.</p>
+
+      <div class="pain-grid">
+        <div class="pain-col">
+          <span class="pain-col-num">01</span>
+          <h3>Context leaks between sessions</h3>
+          <p>You sit down tomorrow and spend 30 minutes reconstructing what you were thinking today. Multiply that by every session, every project. It compounds into real time lost.</p>
+        </div>
+        <div class="pain-col">
+          <span class="pain-col-num">02</span>
+          <h3>AI agents start cold every time</h3>
+          <p>Claude Code, Cursor, and Codex read your code, not your intent. Without structured context files, every new session hands your agent a blank slate. The more you build, the more gets left behind.</p>
+        </div>
+        <div class="pain-col">
+          <span class="pain-col-num">03</span>
+          <h3>The "why" disappears on handoff</h3>
+          <p>Tradeoffs, rejected approaches, architecture decisions: they live in your head during the build. Handoffs start without them. The code survives. The reasoning doesn't.</p>
+        </div>
+      </div>
+
+      <div class="resolution-block">
+        <p>RetroPRD treats your git history and session transcripts as primary sources. One command reads, classifies, and reconstructs: the PRDs, ADRs, and context files your project should have had from day one. <strong>No rewriting history. Just surfacing it.</strong></p>
+      </div>
+
+      <div class="outcomes-strip">
+        <div class="outcome-item">
+          <span class="outcome-dot"></span>
+          <p>
+            <strong>AI continuity</strong>
+            Each new agent session picks up exactly where the last one ended. No re-explaining, no re-reading.
+          </p>
+        </div>
+        <div class="outcome-item">
+          <span class="outcome-dot"></span>
+          <p>
+            <strong>Onboarding in hours</strong>
+            New contributors read the PRD trail and understand the project's full arc — decisions, tradeoffs, and all.
+          </p>
+        </div>
+        <div class="outcome-item">
+          <span class="outcome-dot"></span>
+          <p>
+            <strong>Permanent decision trail</strong>
+            Every architectural choice is documented with context, alternatives considered, and consequences. The "why" never gets lost.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section outputs-section">
+    <div class="container">
+      <p class="section-label">What you get</p>
+      <h2 class="section-title">One run. Complete coverage.</h2>
+      <p class="section-sub">Every artifact a well-documented codebase should have — generated from what already exists.</p>
+      <div class="outputs-list">
+        <div class="output-item">
+          <div class="output-item-left">
+            <span class="output-tag">PRD</span>
+            <code class="output-path">.prd/NNN-*.md</code>
+          </div>
+          <div class="output-item-right">
+            <h3>Product Requirements Docs</h3>
+            <p>One per feature, bug fix, or infra change. Chronological, with reconstruction confidence markers.</p>
+          </div>
+        </div>
+        <div class="output-item">
+          <div class="output-item-left">
+            <span class="output-tag">ADR</span>
+            <code class="output-path">.dev/decisions.md</code>
+          </div>
+          <div class="output-item-right">
+            <h3>Architectural Decisions</h3>
+            <p>Every technical decision with context, alternatives considered, and consequences. Reconstructed from code and commits.</p>
+          </div>
+        </div>
+        <div class="output-item">
+          <div class="output-item-left">
+            <span class="output-tag">Session</span>
+            <code class="output-path">.context/session.md</code>
+          </div>
+          <div class="output-item-right">
+            <h3>Session Handoff</h3>
+            <p>Current product state, open items, and suggested next priorities — ready for the next agent to pick up.</p>
+          </div>
+        </div>
+        <div class="output-item">
+          <div class="output-item-left">
+            <span class="output-tag">Backlog</span>
+            <code class="output-path">.context/backlog.md</code>
+          </div>
+          <div class="output-item-right">
+            <h3>Backlog</h3>
+            <p>Deferred items, known bugs, and ideas surfaced during the archaeological dig. Nothing gets lost.</p>
+          </div>
+        </div>
+        <div class="output-item">
+          <div class="output-item-left">
+            <span class="output-tag">AGENTS</span>
+            <code class="output-path">AGENTS.md</code>
+          </div>
+          <div class="output-item-right">
+            <h3>AGENTS.md Fill-in</h3>
+            <p>Populates your builder OS scaffold with real product context: build phases, conventions, and key learnings.</p>
+          </div>
+        </div>
+        <div class="output-item">
+          <div class="output-item-left">
+            <span class="output-tag">Index</span>
+            <code class="output-path">.prd/README.md</code>
+          </div>
+          <div class="output-item-right">
+            <h3>PRD Index</h3>
+            <p>A master changelog of everything shipped, typed and dated — built for both agent and human readability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section builder-os-section">
+    <div class="container">
+      <p class="section-label">Builder OS</p>
+      <h2 class="section-title">Run it once. Every session after starts warm.</h2>
+      <p class="section-sub">RetroPRD doesn't just generate docs. It wires up the infrastructure that makes every future agent session context-aware from the first message — automatically, permanently.</p>
+
+      <div class="session-compare">
+        <div class="session-col session-col--before">
+          <p class="session-col-label">Without RetroPRD</p>
+          <ul class="session-list">
+            <li>Agent starts with zero context</li>
+            <li>You re-explain the architecture</li>
+            <li>You re-explain why decisions were made</li>
+            <li>You re-explain what's done and what's next</li>
+            <li>Agent finally starts building</li>
+          </ul>
+          <p class="session-col-note">Repeated every session, forever.</p>
+        </div>
+        <div class="session-divider">vs</div>
+        <div class="session-col session-col--after">
+          <p class="session-col-label">After one /retroprd run</p>
+          <ul class="session-list">
+            <li>Agent reads <code>AGENTS.md</code> — full product context</li>
+            <li>Agent reads <code>.context/session.md</code> — current state</li>
+            <li>Agent reads <code>.dev/decisions.md</code> — decision trail</li>
+            <li>Agent reads <code>.prd/</code> — complete feature history</li>
+            <li>Agent starts building immediately</li>
+          </ul>
+          <p class="session-col-note">Every session, without any extra work.</p>
+        </div>
+      </div>
+
+      <div class="how-it-sticks">
+        <p class="how-it-sticks-label">Why it's permanent</p>
+        <p>Claude Code, Cursor, Codex, and Gemini CLI all read <code>AGENTS.md</code> and the context files in your repo at session start — it's a shared convention across all major coding agents. RetroPRD fills those files with real content from your actual build history. That's the entire mechanism. One run, and documentation capability is baked into every agent session going forward.</p>
+      </div>
+
+      <div class="agent-switch">
+        <div class="agent-switch-header">
+          <p class="agent-switch-label">Harness switching</p>
+          <h3>Hit a token limit. Switch agents. Keep building.</h3>
+          <p>Context lives in your repo, not in any model's window. When one agent's context window fills, switch to another — it reads the same files and picks up exactly where the last one stopped. Burn through limits freely. Nothing is lost between handoffs.</p>
+        </div>
+        <div class="relay-chain">
+          <div class="relay-stop">
+            <span class="relay-agent-name">Claude Code</span>
+            <div class="relay-bar"><div class="relay-bar-fill" style="width:94%"></div></div>
+            <span class="relay-stop-note">context limit reached</span>
+          </div>
+          <div class="relay-stop">
+            <span class="relay-agent-name">Cursor</span>
+            <div class="relay-bar"><div class="relay-bar-fill" style="width:89%"></div></div>
+            <span class="relay-stop-note">context limit reached</span>
+          </div>
+          <div class="relay-stop">
+            <span class="relay-agent-name">Codex CLI</span>
+            <div class="relay-bar"><div class="relay-bar-fill" style="width:96%"></div></div>
+            <span class="relay-stop-note">context limit reached</span>
+          </div>
+          <div class="relay-stop relay-stop--active">
+            <span class="relay-agent-name">Gemini CLI</span>
+            <div class="relay-bar"><div class="relay-bar-fill" style="width:32%"></div></div>
+            <span class="relay-stop-note">building...</span>
+          </div>
+        </div>
+        <div class="relay-context">
+          <span class="relay-context-dot"></span>
+          <span class="relay-context-text">repo context complete throughout: <code>.context/session.md</code> · <code>.prd/</code> · <code>.dev/decisions.md</code> · <code>AGENTS.md</code></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section phases-section">
+    <div class="container">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">Five phases. No guesswork.</h2>
+      <p class="section-sub">A structured process designed to surface evidence before writing anything.</p>
+      <div class="phases">
+        <div class="phases-line" aria-hidden="true"></div>
+        <div class="phase">
+          <div class="phase-num">0</div>
+          <div class="phase-body">
+            <h3>Orient</h3>
+            <p>Reads existing scaffold files — AGENTS.md, README, <code>.prd/</code> — before touching anything. Understands your conventions first.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">1</div>
+          <div class="phase-body">
+            <h3>Archaeological Dig</h3>
+            <p>Three evidence layers: git log and diffs, agent session transcripts (Claude Code, Codex CLI), and direct code reading for intent.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">2</div>
+          <div class="phase-body">
+            <h3>Classify</h3>
+            <p>Groups related commits into PRD-sized units. A feature spread across four commits becomes one PRD, not four.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">3</div>
+          <div class="phase-body">
+            <h3>Write PRDs</h3>
+            <p>Produces dated, typed PRDs with problem, change, and files sections. Each carries a confidence marker: High, Medium, or Low.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">4</div>
+          <div class="phase-body">
+            <h3>Populate Scaffold</h3>
+            <p>Fills in session.md, backlog.md, decisions.md, and AGENTS.md TODO sections with real context from the dig.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-num">5</div>
+          <div class="phase-body">
+            <h3>Debrief</h3>
+            <p>Summarises what was reconstructed, confidence levels, gaps, and what needs builder verification — then reminds you to commit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section agents-section">
+    <div class="container">
+      <p class="section-label">Compatibility</p>
+      <h2 class="section-title">Works where you work</h2>
+      <p class="section-sub">Reads each agent's native transcript format. No manual export required.</p>
+      <div class="agents-table-wrap">
+        <table class="agents-table">
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Transcript location</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Claude Code</strong></td>
+              <td><code>~/.claude/projects/&lt;hash&gt;/sessions/*.jsonl</code></td>
+              <td>Full support · <code>--synthesize</code> flag</td>
+            </tr>
+            <tr>
+              <td><strong>Codex CLI</strong></td>
+              <td><code>~/.codex/sessions/**/*.jsonl</code></td>
+              <td>Also reads <code>~/.codex/memories/</code></td>
+            </tr>
+            <tr>
+              <td><strong>Any agent</strong></td>
+              <td><code>--transcript /path/to/file.jsonl</code></td>
+              <td>Generic JSONL parser</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section install-section">
+    <div class="container">
+      <p class="section-label">Installation</p>
+      <h2 class="section-title">Get started in 30 seconds</h2>
+      <div class="install-options">
+        <div class="install-opt">
+          <p class="install-opt-label">Via npx</p>
+          <div class="code-block">
+            <pre><code>npx skills add yagneshlp/retroprd</code></pre>
+            <button class="copy-code-btn" onclick="copyText(this, 'npx skills add yagneshlp/retroprd')">Copy</button>
+          </div>
+        </div>
+        <div class="install-opt">
+          <p class="install-opt-label">Manual — project-local</p>
+          <div class="code-block">
+            <pre><code>cp -r skills/retroprd .claude/skills/</code></pre>
+            <button class="copy-code-btn" onclick="copyText(this, 'cp -r skills/retroprd .claude/skills/')">Copy</button>
+          </div>
+        </div>
+        <div class="install-opt">
+          <p class="install-opt-label">Manual — global</p>
+          <div class="code-block">
+            <pre><code>cp -r skills/retroprd ~/.claude/skills/</code></pre>
+            <button class="copy-code-btn" onclick="copyText(this, 'cp -r skills/retroprd ~/.claude/skills/')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="usage-block">
+        <p class="install-opt-label">Then use it in your agent</p>
+        <div class="code-block usage-code">
+          <pre><code><span class="c-cmd">/retroprd</span>                   <span class="c-comment"># Full run — git dig + PRDs + all scaffold files</span>
+<span class="c-cmd">/retroprd</span> --prds-only       <span class="c-comment"># Just generate PRDs</span>
+<span class="c-cmd">/retroprd</span> --scaffold-only   <span class="c-comment"># Just populate AGENTS.md and context files</span></code></pre>
+        </div>
+        <p class="natural-lang">Or just say: <em>"Document what I've built so far"</em></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>MIT License · Built by <a href="https://github.com/yagneshlp" target="_blank" rel="noopener noreferrer">Yagnesh L P</a></span>
+      <a href="https://github.com/yagneshlp/retroprd" class="footer-gh-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+    </div>
+  </footer>
+
+  <script>
+    function copyText(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerHTML;
+        if (btn.classList.contains('copy-btn')) {
+          btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
+        } else {
+          btn.textContent = 'Copied!';
+        }
+        setTimeout(() => { btn.innerHTML = original; }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
