@@ -1,7 +1,6 @@
 # RetroPRD
 
 [![skills.sh](https://skills.sh/b/yagneshlp/retroprd)](https://skills.sh/yagneshlp/retroprd)
-[![npm version](https://img.shields.io/npm/v/retroprd.svg?label=npm&color=a78bfa)](https://www.npmjs.com/package/retroprd)
 [![License: MIT](https://img.shields.io/badge/license-MIT-a78bfa.svg)](LICENSE)
 
 **Retroactive PRDs for builders who started coding before they started documenting.**
